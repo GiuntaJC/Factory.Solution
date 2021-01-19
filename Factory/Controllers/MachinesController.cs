@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using MusicOrg.Models;
+using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
 
