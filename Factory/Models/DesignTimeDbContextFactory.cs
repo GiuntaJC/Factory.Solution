@@ -7,12 +7,12 @@ namespace Factory.Models
 {
   public class FactoryContextFactory : IDesignTimeDbContextFactory<FactoryContext>
   {
-    FactoryContext IDesignTimeDbContextFactory<FactoryContext>.CreateDbContext(String[] args)
+    FactoryContext IDesignTimeDbContextFactory<FactoryContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
-        .addJsonFile("appsettings.json")
-        .build();
+        .AddJsonFile("appsettings.json")
+        .Build();
 
       var builder = new DbContextOptionsBuilder<FactoryContext>();
       var connectionString = configuration.GetConnectionString("DefaultConnection");
