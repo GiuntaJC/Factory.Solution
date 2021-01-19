@@ -1,4 +1,3 @@
-@using Factory.Models;
 @model Factory.Models.Machine;
 
 <h1>Machine details</h1>
@@ -15,12 +14,11 @@ else
   <h3>Engineers</h3>
   @foreach(var join in Model.Engineers)
   {
-    <p>@Html.ActionLink($"{join.Engineer.EngineerName}", "Details", "Engineers", new { id = join.Engineer.EngineerId })</p><br>
-    <p>Would you like to remove this engineer: @join.Engineer.EngineerName ?</p>
     @using (Html.BeginForm("DeleteEngineer", "Machines"))
     {
+      <p>@Html.ActionLink($"{join.Engineer.EngineerName}", "Details", "Engineers", new { id = join.Engineer.EngineerId })</p><br>
       @Html.Hidden("joinId", @join.EngineerMachineId)
-      <input type="submit" value="remove"/>
+      <input type="submit" value="x"/>
     }
   }
 }
