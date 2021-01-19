@@ -7,13 +7,19 @@
 ## Description
 Uses many-to-many relationships to allow the user to track various machines, and engineers licensed to work on them
 
+## Prerequisites
 
-## Setup/Installation Requirements
+* .NET Core Framework
 
+## Setup
+
+* _Install listed prerequisites following their own listed install instructions_
 * _Download or clone this repository by copying the link from the green "code" dropdown menu and running "git clone {copied link}" in the command line_
 * _open console in project-root/Factory_
-* _run "dotnet build" project-root/Factory_
+* _run "dotnet restore" followed by "dotnet build" project-root/Factory_
+* _if no Migrations directory exists, run "dotnet ef migrations add Initial" followed by "dotnet ef database update" in project-root/Factory_
 * _run "dotnet run" project-root/Factory_
+* _use your web browser of choice to navigate to http://localhost:5000_
 
 ## User stories
 - As the factory manager, I need to be able to see a list of all engineers, and I need to be able to see a list of all machines.
