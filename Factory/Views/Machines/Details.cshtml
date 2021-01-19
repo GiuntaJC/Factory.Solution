@@ -1,0 +1,33 @@
+@using Factory.Models;
+@model Factory.Models.Machine;
+
+<h1>Machine details</h1>
+<hr>
+<h3>@Html.DisplayFor(model => model.MachineName)</h3>
+<hr>
+
+@if(@Model.Engineers.Count == 0)
+{
+  <p>This machine is not maintained by any engineers</p>
+}
+else
+{
+  <h3>Engineers</h3>
+  @foreach(var join in Model.Engineers)
+  {
+    <p>@Html.ActionLink($"{join.Engineer.EngineerName}", "Details", "Engineers", new { id = join.Engineer.EngineerId })</p><br>
+    <p>Would you like to remove this engineer: @join.Engineer.EngineerName ?</p>
+    @using (Html.BeginForm("DeleteEngineer", "Machines"))
+    {
+      @Html.Hidden("joinId", @join.EngineerMachineId)
+      <input type="submit" value="remove"/>
+    }
+  }
+}
+<br><br>
+
+<p>@Html.ActionLink("Edit this machine", "Edit", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Delete this machine", "Delete", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Add an engineer to this machine", "AddEngineer", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Back to machine list", "Index")</p>
+<p>@Html.ActionLink("Back to home", "Index", "Home")</p>
